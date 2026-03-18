@@ -1,0 +1,94 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="800" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F5F5F8"/>
+    </linearGradient>
+    <radialGradient id="orbRed" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1230 190) rotate(90) scale(220)">
+      <stop stop-color="#DF0515" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#DF0515" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbGray" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1010 720) rotate(90) scale(260)">
+      <stop stop-color="#9298A2" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#9298A2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="barRed" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#DF0515"/>
+      <stop offset="1" stop-color="#7C0316"/>
+    </linearGradient>
+    <filter id="shellShadow" x="500" y="30" width="1040" height="940" filterUnits="userSpaceOnUse">
+      <feOffset dy="16"/>
+      <feGaussianBlur stdDeviation="16"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0666667 0 0 0 0 0.0745098 0 0 0 0 0.0941176 0 0 0 0.24 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+    <filter id="cardShadow" x="310" y="120" width="460" height="320" filterUnits="userSpaceOnUse">
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="9"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0666667 0 0 0 0 0.0745098 0 0 0 0 0.0941176 0 0 0 0.2 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+    <filter id="cardShadow2" x="292" y="560" width="490" height="320" filterUnits="userSpaceOnUse">
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="9"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0666667 0 0 0 0 0.0745098 0 0 0 0 0.0941176 0 0 0 0.2 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+    <filter id="cardShadow3" x="1180" y="320" width="300" height="340" filterUnits="userSpaceOnUse">
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="9"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0666667 0 0 0 0 0.0745098 0 0 0 0 0.0941176 0 0 0 0.2 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+    <clipPath id="photoClip">
+      <rect x="616" y="102" width="840" height="796" rx="42"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <circle cx="1230" cy="190" r="220" fill="url(#orbRed)"/>
+  <circle cx="1010" cy="720" r="260" fill="url(#orbGray)"/>
+
+  <g filter="url(#shellShadow)">
+    <rect x="580" y="70" width="900" height="860" rx="52" fill="white" fill-opacity="0.88" stroke="#DCE1E7" stroke-width="2"/>
+    <g clip-path="url(#photoClip)">
+      <image href="./hero.png" x="580" y="70" width="900" height="860" preserveAspectRatio="xMidYMid slice"/>
+      <rect x="616" y="102" width="840" height="796" fill="#FFFFFF" opacity="0.08"/>
+    </g>
+    <rect x="616" y="102" width="840" height="796" rx="42" fill="none" stroke="#E8ECF0" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#cardShadow)">
+    <rect x="340" y="150" width="400" height="240" rx="22" fill="white" fill-opacity="0.96" stroke="#D8DDE4" stroke-width="2"/>
+    <text x="366" y="186" fill="#68707A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">CRESCIMENTO</text>
+    <text x="366" y="236" fill="#111318" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">+38% no mês</text>
+    <rect x="370" y="314" width="30" height="36" rx="8" fill="url(#barRed)"/>
+    <rect x="424" y="292" width="30" height="58" rx="8" fill="url(#barRed)"/>
+    <rect x="478" y="276" width="30" height="74" rx="8" fill="url(#barRed)"/>
+    <rect x="532" y="256" width="30" height="94" rx="8" fill="url(#barRed)"/>
+    <rect x="586" y="230" width="30" height="120" rx="8" fill="url(#barRed)"/>
+    <rect x="640" y="204" width="30" height="146" rx="8" fill="url(#barRed)"/>
+  </g>
+
+  <g filter="url(#cardShadow2)">
+    <rect x="322" y="590" width="420" height="240" rx="22" fill="white" fill-opacity="0.96" stroke="#D8DDE4" stroke-width="2"/>
+    <text x="348" y="626" fill="#68707A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">TAXA DE CONVERSÃO</text>
+    <text x="348" y="676" fill="#111318" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">6.4% previsível</text>
+    <polyline points="358,776 420,760 486,744 552,718 618,690 676,664 722,642" stroke="#DF0515" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="420" cy="760" r="5" fill="#DF0515"/>
+    <circle cx="486" cy="744" r="5" fill="#DF0515"/>
+    <circle cx="552" cy="718" r="5" fill="#DF0515"/>
+    <circle cx="618" cy="690" r="5" fill="#DF0515"/>
+    <circle cx="676" cy="664" r="5" fill="#DF0515"/>
+    <circle cx="722" cy="642" r="5" fill="#DF0515"/>
+  </g>
+
+  <g filter="url(#cardShadow3)">
+    <rect x="1210" y="350" width="240" height="270" rx="22" fill="white" fill-opacity="0.96" stroke="#D8DDE4" stroke-width="2"/>
+    <circle cx="1330" cy="442" r="56" fill="#DF0515"/>
+    <circle cx="1330" cy="442" r="42" fill="white"/>
+    <text x="1300" y="451" fill="#111318" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">100%</text>
+    <text x="1250" y="544" fill="#68707A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">PERFORMANCE</text>
+  </g>
+</svg>

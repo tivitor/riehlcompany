@@ -1,0 +1,39 @@
+<svg width="380" height="220" viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rec-bg" x1="190" y1="0" x2="190" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FBFBFD"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1.2" y="1.2" width="377.6" height="217.6" rx="22" fill="url(#rec-bg)" stroke="#F1B8BE" stroke-width="2.4"/>
+
+  <text x="24" y="34" fill="#8F96A5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.06em">RETENÇÃO E RECORRÊNCIA</text>
+  <text x="24" y="68" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">LTV previsível</text>
+  <text x="24" y="95" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">(escala sustentável)</text>
+
+  <rect x="266" y="20" width="92" height="48" rx="13" fill="#FFF5F6" stroke="#F5C6CD"/>
+  <text x="278" y="50" fill="#DF0515" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">+92%</text>
+
+  <line x1="24" y1="198" x2="356" y2="198" stroke="#EEF1F5" stroke-width="2"/>
+  <line x1="24" y1="170" x2="356" y2="170" stroke="#F3F5F8" stroke-width="2"/>
+  <line x1="24" y1="142" x2="356" y2="142" stroke="#F3F5F8" stroke-width="2"/>
+  <line x1="24" y1="114" x2="356" y2="114" stroke="#F3F5F8" stroke-width="2"/>
+
+  <text x="24" y="216" fill="#9AA1AF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">Jan</text>
+  <text x="82" y="216" fill="#9AA1AF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">Fev</text>
+  <text x="140" y="216" fill="#9AA1AF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">Mar</text>
+  <text x="198" y="216" fill="#9AA1AF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">Abr</text>
+  <text x="256" y="216" fill="#9AA1AF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">Mai</text>
+  <text x="314" y="216" fill="#9AA1AF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600">Jun</text>
+
+  <polyline
+    points="30,190 62,184 94,176 126,165 158,150 190,156 222,141 254,146 286,134 318,128 350,114"
+    fill="none"
+    stroke="#F59E0B"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="350" cy="114" r="6.5" fill="#DF0515"/>
+</svg>

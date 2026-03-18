@@ -1,0 +1,25 @@
+<svg width="320" height="220" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="assert-bg" x1="160" y1="0" x2="160" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FBFBFD"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1.2" y="1.2" width="317.6" height="217.6" rx="22" fill="url(#assert-bg)" stroke="#F1B8BE" stroke-width="2.4"/>
+
+  <text x="22" y="34" fill="#8F96A5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.06em">ASSERTIVIDADE</text>
+
+  <path d="M48 126C48 77.3989 87.3989 38 136 38C166.902 38 194.491 53.9385 210.187 78.3821"
+    stroke="#5568D8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M218.56 94.636C221.979 101.634 224.271 109.276 225.225 117.287"
+    stroke="#A45CE3" stroke-width="12" stroke-linecap="round"/>
+  <path d="M223.26 129.452C221.166 143.162 215.602 155.795 207.355 166.443"
+    stroke="#35A4E6" stroke-width="12" stroke-linecap="round"/>
+  <path d="M194.626 177.533C188.663 181.83 182.106 185.362 175.144 188.009"
+    stroke="#69C67D" stroke-width="12" stroke-linecap="round"/>
+
+  <text x="111" y="136" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="800">98%</text>
+  <text x="66" y="177" fill="#253142" font-family="Inter, Arial, sans-serif" font-size="33" font-weight="700">Assertividade</text>
+  <text x="96" y="202" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">em campanhas</text>
+</svg>
