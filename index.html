@@ -500,269 +500,230 @@
             box-shadow: 0 24px 64px -50px rgba(17, 19, 24, 0.32);
         }
 
-        .niche-shell {
+        .service-shell {
             position: relative;
-            padding: clamp(22px, 2.8vw, 34px);
-            border-radius: 34px;
+            padding: clamp(20px, 2.6vw, 34px);
+            border-radius: 36px;
             background:
-                radial-gradient(circle at top left, rgba(223, 5, 21, 0.08), transparent 28%),
-                linear-gradient(180deg, rgba(17, 19, 24, 0.04) 0%, rgba(17, 19, 24, 0.01) 100%),
-                rgba(255, 255, 255, 0.78);
+                radial-gradient(circle at top left, rgba(223, 5, 21, 0.06), transparent 25%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 247, 249, 0.96) 100%);
+            border: 1px solid rgba(17, 19, 24, 0.06);
+            box-shadow: 0 34px 84px -60px rgba(17, 19, 24, 0.3);
+        }
+
+        .service-accordion {
+            display: grid;
+            gap: 14px;
+        }
+
+        .service-item {
+            border-radius: 28px;
             border: 1px solid rgba(17, 19, 24, 0.08);
-            box-shadow: 0 34px 80px -56px rgba(17, 19, 24, 0.4);
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 18px 42px -40px rgba(17, 19, 24, 0.24);
             overflow: hidden;
+            transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
         }
 
-        .niche-shell::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 38%);
-            pointer-events: none;
+        .service-item:hover,
+        .service-item.is-open {
+            border-color: rgba(223, 5, 21, 0.18);
+            box-shadow: 0 28px 60px -42px rgba(17, 19, 24, 0.28);
         }
 
-        .niche-accordion {
-            position: relative;
-            display: flex;
-            gap: 16px;
-            min-height: 450px;
-            scroll-padding-inline: 8px;
+        .service-item.is-open {
+            transform: translateY(-1px);
         }
 
-        .niche-card {
-            position: relative;
-            flex: 0.9 1 0;
-            min-width: 120px;
-            border-radius: 24px;
-            overflow: hidden;
-            cursor: pointer;
-            isolation: isolate;
-            transition:
-                flex-grow 0.4s ease-in-out,
-                transform 0.4s ease-in-out,
-                box-shadow 0.4s ease-in-out,
-                border-color 0.4s ease-in-out;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: #0f1115;
-        }
-
-        .niche-card.is-active {
-            flex-grow: 2.8;
-            transform: translateY(-2px);
-            box-shadow: 0 30px 70px -40px rgba(0, 0, 0, 0.65);
-        }
-
-        .niche-media,
-        .niche-overlay,
-        .niche-card::after {
-            position: absolute;
-            inset: 0;
-        }
-
-        .niche-media {
+        .service-trigger {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease, filter 0.5s ease;
-            filter: saturate(1.02) contrast(1.04) brightness(0.82);
-        }
-
-        .niche-card.is-active .niche-media,
-        .niche-card:hover .niche-media {
-            transform: scale(1.08);
-            filter: saturate(1.08) contrast(1.06) brightness(0.88);
-        }
-
-        .niche-overlay {
-            background:
-                linear-gradient(180deg, rgba(8, 8, 10, 0.2) 0%, rgba(8, 8, 10, 0.1) 32%, rgba(8, 8, 10, 0.76) 100%),
-                linear-gradient(0deg, rgba(8, 8, 10, 0.72) 0%, rgba(8, 8, 10, 0.04) 55%);
-            z-index: 1;
-        }
-
-        .niche-card::after {
-            content: "";
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            background: linear-gradient(180deg, rgba(223, 5, 21, 0.04) 0%, rgba(223, 5, 21, 0.22) 100%);
-        }
-
-        .niche-card.is-active::after,
-        .niche-card:hover::after {
-            opacity: 1;
-        }
-
-        .niche-content {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 100%;
-            padding: 22px;
-            color: #ffffff;
-        }
-
-        .niche-topline {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: auto;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 24px 28px;
+            background: transparent;
+            text-align: left;
+            border: 0;
+            cursor: pointer;
+            transition: background 0.25s ease;
         }
 
-        .niche-icon {
+        .service-trigger:hover {
+            background: rgba(17, 19, 24, 0.015);
+        }
+
+        .service-trigger:focus-visible {
+            outline: none;
+            box-shadow: inset 0 0 0 3px rgba(223, 5, 21, 0.16);
+        }
+
+        .service-trigger-title {
+            font-size: clamp(1.14rem, 1.35vw, 1.42rem);
+            line-height: 1.15;
+            font-weight: 800;
+            color: var(--text-strong);
+            letter-spacing: -0.02em;
+        }
+
+        .service-trigger-icon {
             width: 44px;
             height: 44px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 14px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.14);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            color: #ffffff;
+            border-radius: 999px;
+            color: var(--vermelho-cta);
+            background: rgba(223, 5, 21, 0.06);
+            border: 1px solid rgba(223, 5, 21, 0.12);
             flex-shrink: 0;
+            transition: transform 0.35s ease, background 0.3s ease, border-color 0.3s ease;
         }
 
-        .niche-label {
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            font-size: 0.8rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.84);
-            transition: opacity 0.35s ease, transform 0.35s ease;
+        .service-item.is-open .service-trigger-icon {
+            transform: rotate(45deg);
+            background: rgba(223, 5, 21, 0.1);
+            border-color: rgba(223, 5, 21, 0.18);
         }
 
-        .niche-card.is-active .niche-label,
-        .niche-card:hover .niche-label {
+        .service-panel {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.45s ease;
+        }
+
+        .service-item.is-open .service-panel {
+            grid-template-rows: 1fr;
+        }
+
+        .service-panel-inner {
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .service-panel-content {
+            padding: 0 28px 28px;
             opacity: 0;
-            transform: rotate(180deg) translateY(-12px);
+            transform: translateY(-16px);
+            transition: opacity 0.3s ease, transform 0.42s ease;
         }
 
-        .niche-bottom {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: flex-start;
-            width: 100%;
-        }
-
-        .niche-name {
-            font-size: clamp(1.1rem, 1.35vw, 1.28rem);
-            line-height: 1.15;
-            font-weight: 700;
-            max-width: 10ch;
-            color: rgba(255, 255, 255, 0.96);
-            transition: transform 0.35s ease;
-        }
-
-        .niche-detail {
-            max-width: 27rem;
-            opacity: 0;
-            transform: translateY(18px);
-            pointer-events: none;
-            transition: opacity 0.35s ease, transform 0.4s ease;
-        }
-
-        .niche-card.is-active .niche-detail,
-        .niche-card:hover .niche-detail {
+        .service-item.is-open .service-panel-content {
             opacity: 1;
             transform: translateY(0);
-            pointer-events: auto;
         }
 
-        .niche-detail-title {
-            font-size: clamp(1.55rem, 2.1vw, 2.35rem);
-            line-height: 1.05;
-            color: #ffffff;
-            margin-bottom: 12px;
-            max-width: 12ch;
+        .service-panel-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.94fr) minmax(320px, 0.86fr);
+            gap: 30px;
+            align-items: center;
+            padding-top: 6px;
         }
 
-        .niche-description {
-            font-size: 1rem;
-            line-height: 1.65;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 33ch;
+        .service-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .niche-cta {
+        .service-kicker {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 18px;
-            font-size: 0.82rem;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(223, 5, 21, 0.06);
+            border: 1px solid rgba(223, 5, 21, 0.12);
+            color: var(--vermelho-cta);
+            font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: #ffffff;
-            transition: transform 0.25s ease, opacity 0.25s ease;
         }
 
-        .niche-card:hover .niche-cta,
-        .niche-card.is-active .niche-cta {
-            transform: translateX(4px);
+        .service-expanded-title {
+            margin-top: 18px;
+            font-size: clamp(1.6rem, 2.3vw, 2.45rem);
+            line-height: 1.06;
+            color: var(--text-strong);
+            max-width: 16ch;
         }
 
-        .niche-card:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(223, 5, 21, 0.32), 0 30px 70px -40px rgba(0, 0, 0, 0.65);
+        .service-description {
+            margin-top: 16px;
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-body);
+            max-width: 56ch;
         }
 
-        @media (min-width: 768px) and (max-width: 1100px) {
-            .niche-shell {
-                padding: 24px;
-                border-radius: 30px;
-            }
+        .service-subitems {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-            .niche-accordion {
-                min-height: 420px;
-                gap: 12px;
-            }
+        .service-subitem {
+            padding: 9px 12px;
+            border-radius: 999px;
+            background: #f6f4f5;
+            border: 1px solid rgba(17, 19, 24, 0.08);
+            color: #4b5563;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
 
-            .niche-card {
-                min-width: 100px;
-                border-radius: 22px;
-            }
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            padding: 13px 18px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid rgba(223, 5, 21, 0.18);
+            color: var(--vermelho-cta);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
 
-            .niche-card.is-active {
-                flex-grow: 2.2;
-            }
+        .service-cta:hover {
+            transform: translateX(3px);
+            background: rgba(223, 5, 21, 0.03);
+        }
 
-            .niche-content {
-                padding: 18px;
-            }
+        .service-media {
+            position: relative;
+            min-height: 320px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 28px 52px -36px rgba(17, 19, 24, 0.35);
+        }
 
-            .niche-topline {
-                gap: 10px;
-            }
+        .service-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 10, 12, 0.08) 0%, rgba(10, 10, 12, 0.26) 100%);
+            pointer-events: none;
+        }
 
-            .niche-icon {
-                width: 40px;
-                height: 40px;
-                border-radius: 12px;
-            }
+        .service-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
 
-            .niche-name {
-                font-size: 1rem;
-                max-width: 9ch;
-            }
-
-            .niche-detail-title {
-                font-size: clamp(1.32rem, 2vw, 1.8rem);
-                max-width: 13ch;
-            }
-
-            .niche-description {
-                font-size: 0.94rem;
-                line-height: 1.55;
-                max-width: 28ch;
-            }
+        .service-item.is-open .service-media img {
+            transform: scale(1.04);
         }
 
         .input-field {
@@ -844,169 +805,109 @@
                 max-width: 18ch;
             }
 
-            .niche-shell {
+            .service-shell {
                 padding: 18px;
                 border-radius: 28px;
             }
 
-            .niche-accordion {
-                gap: 14px;
-                min-height: 0;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                padding-bottom: 4px;
+            .service-trigger {
+                padding: 20px 22px;
             }
 
-            .niche-card {
-                flex: 0 0 min(84vw, 340px);
-                min-width: min(84vw, 340px);
-                min-height: 400px;
-                scroll-snap-align: center;
+            .service-panel-content {
+                padding: 0 22px 22px;
             }
 
-            .niche-card.is-active {
-                flex-grow: 1;
+            .service-panel-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
             }
 
-            .niche-label {
-                writing-mode: initial;
-                transform: none;
-                opacity: 1;
-                font-size: 0.72rem;
-                letter-spacing: 0.16em;
+            .service-media {
+                min-height: 280px;
             }
 
-            .niche-card.is-active .niche-label,
-            .niche-card:hover .niche-label {
-                transform: none;
-                opacity: 1;
-            }
-
-            .niche-name {
-                font-size: 1rem;
-                max-width: 14ch;
-            }
-
-            .niche-detail {
-                opacity: 0;
-                transform: translateY(18px);
-                max-width: 100%;
-            }
-
-            .niche-card.is-active .niche-detail {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .niche-detail-title {
-                font-size: 1.42rem;
-                max-width: 14ch;
-            }
-
-            .niche-description {
-                font-size: 0.94rem;
-                line-height: 1.58;
-                max-width: 30ch;
-            }
-
-            .niche-cta {
-                font-size: 0.76rem;
-                letter-spacing: 0.12em;
+            .service-expanded-title {
+                max-width: 18ch;
             }
         }
 
         @media (max-width: 639px) {
-            .niche-shell {
+            .service-shell {
                 padding: 14px;
                 border-radius: 24px;
             }
 
-            .niche-accordion {
-                display: grid;
+            .service-accordion {
                 gap: 12px;
-                overflow: visible;
-                scroll-snap-type: none;
-                padding-bottom: 0;
             }
 
-            .niche-card,
-            .niche-card.is-active {
-                min-width: 100%;
-                min-height: 148px;
-                flex: none;
-                box-shadow: none;
-                transform: none;
+            .service-item {
+                border-radius: 22px;
             }
 
-            .niche-card.is-active {
-                min-height: 320px;
-                box-shadow: 0 24px 48px -34px rgba(0, 0, 0, 0.55);
+            .service-trigger {
+                gap: 16px;
+                padding: 18px 18px;
             }
 
-            .niche-content {
-                padding: 16px;
+            .service-trigger-title {
+                font-size: 1.02rem;
             }
 
-            .niche-topline {
-                margin-bottom: 36px;
+            .service-trigger-icon {
+                width: 40px;
+                height: 40px;
             }
 
-            .niche-icon {
-                width: 38px;
-                height: 38px;
-                border-radius: 12px;
+            .service-panel-content {
+                padding: 0 18px 18px;
             }
 
-            .niche-label {
-                font-size: 0.68rem;
-                letter-spacing: 0.15em;
+            .service-expanded-title {
+                margin-top: 14px;
+                font-size: 1.38rem;
             }
 
-            .niche-name {
-                max-width: 16ch;
+            .service-description {
+                font-size: 0.95rem;
+                line-height: 1.66;
             }
 
-            .niche-detail-title {
-                font-size: 1.28rem;
-                margin-bottom: 10px;
-            }
-
-            .niche-description {
-                font-size: 0.9rem;
-                line-height: 1.52;
-                max-width: 100%;
+            .service-media {
+                min-height: 220px;
             }
         }
 
         @media (max-width: 420px) {
-            .niche-card,
-            .niche-card.is-active {
-                min-height: 132px;
+            .service-shell {
+                padding: 12px;
             }
 
-            .niche-card.is-active {
-                min-height: 300px;
+            .service-trigger {
+                padding: 16px;
             }
 
-            .niche-content {
-                padding: 14px;
+            .service-panel-content {
+                padding: 0 16px 16px;
             }
 
-            .niche-topline {
+            .service-kicker {
+                font-size: 0.66rem;
+                letter-spacing: 0.12em;
+            }
+
+            .service-expanded-title {
+                font-size: 1.2rem;
+            }
+
+            .service-subitems {
                 gap: 8px;
-                margin-bottom: 28px;
             }
 
-            .niche-name {
-                font-size: 0.95rem;
-            }
-
-            .niche-detail-title {
-                font-size: 1.18rem;
-            }
-
-            .niche-description {
-                font-size: 0.86rem;
+            .service-subitem {
+                font-size: 0.66rem;
+                padding: 8px 10px;
             }
         }
 
@@ -1327,106 +1228,11 @@
             </div>
 
             <div class="mb-6 md:hidden">
-                <p class="text-sm font-bold uppercase tracking-[0.18em] text-vinho">Toque para expandir ou deslize para o lado</p>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-vinho">Toque para expandir cada categoria</p>
             </div>
 
-            <div class="niche-shell">
-                <div class="niche-accordion horizontal-scroll" id="niche-accordion">
-                    <article class="niche-card is-active" data-card tabindex="0" aria-expanded="true">
-                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Clínica estética com atendimento premium">
-                        <div class="niche-overlay"></div>
-                        <div class="niche-content">
-                            <div class="niche-topline">
-                                <span class="niche-icon"><i data-lucide="sparkles" size="20"></i></span>
-                                <span class="niche-label">Saúde, Beleza e Bem-Estar</span>
-                            </div>
-                            <div class="niche-bottom">
-                                <p class="niche-name">Saúde, Beleza e Bem-Estar</p>
-                                <div class="niche-detail">
-                                    <h4 class="niche-detail-title">Saúde, Beleza e Bem-Estar</h4>
-                                    <p class="niche-description">Transformamos sua autoridade em agenda cheia. Captamos pacientes prontos para agendar e despertamos desejo com campanhas estratégicas.</p>
-                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
-                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Restaurante moderno com pratos atrativos">
-                        <div class="niche-overlay"></div>
-                        <div class="niche-content">
-                            <div class="niche-topline">
-                                <span class="niche-icon"><i data-lucide="utensils-crossed" size="20"></i></span>
-                                <span class="niche-label">Alimentação e Gastronomia</span>
-                            </div>
-                            <div class="niche-bottom">
-                                <p class="niche-name">Alimentação e Gastronomia</p>
-                                <div class="niche-detail">
-                                    <h4 class="niche-detail-title">Alimentação e Gastronomia</h4>
-                                    <p class="niche-description">Atraímos clientes com fome agora e aumentamos seu movimento nos horários de pico com campanhas locais e visuais.</p>
-                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
-                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Loja moderna com produtos físicos e ecommerce">
-                        <div class="niche-overlay"></div>
-                        <div class="niche-content">
-                            <div class="niche-topline">
-                                <span class="niche-icon"><i data-lucide="shopping-bag" size="20"></i></span>
-                                <span class="niche-label">Varejo e Produtos Físicos</span>
-                            </div>
-                            <div class="niche-bottom">
-                                <p class="niche-name">Varejo e Produtos Físicos</p>
-                                <div class="niche-detail">
-                                    <h4 class="niche-detail-title">Varejo e Produtos Físicos</h4>
-                                    <p class="niche-description">Conectamos seu produto a quem já quer comprar e aumentamos seu faturamento com estratégias focadas em conversão.</p>
-                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Escritório corporativo para serviços especializados e B2B">
-                        <div class="niche-overlay"></div>
-                        <div class="niche-content">
-                            <div class="niche-topline">
-                                <span class="niche-icon"><i data-lucide="briefcase-business" size="20"></i></span>
-                                <span class="niche-label">Serviços Especializados e B2B</span>
-                            </div>
-                            <div class="niche-bottom">
-                                <p class="niche-name">Serviços Especializados e B2B</p>
-                                <div class="niche-detail">
-                                    <h4 class="niche-detail-title">Serviços Especializados e B2B</h4>
-                                    <p class="niche-description">Geramos leads qualificados e posicionamos sua empresa como referência no mercado.</p>
-                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
-                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Hotel e evento premium para turismo e hospitalidade">
-                        <div class="niche-overlay"></div>
-                        <div class="niche-content">
-                            <div class="niche-topline">
-                                <span class="niche-icon"><i data-lucide="calendar-heart" size="20"></i></span>
-                                <span class="niche-label">Eventos, Turismo e Hospitalidade</span>
-                            </div>
-                            <div class="niche-bottom">
-                                <p class="niche-name">Eventos, Turismo e Hospitalidade</p>
-                                <div class="niche-detail">
-                                    <h4 class="niche-detail-title">Eventos, Turismo e Hospitalidade</h4>
-                                    <p class="niche-description">Lotamos suas datas e aumentamos reservas com campanhas de antecipação e desejo.</p>
-                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <div class="service-shell">
+                <div class="service-accordion" id="service-accordion"></div>
             </div>
         </div>
     </section>
@@ -1745,44 +1551,152 @@
             showSlide(currentSlide);
         }
 
-        const nicheCards = document.querySelectorAll('[data-card]');
-        const desktopAccordionQuery = window.matchMedia('(min-width: 768px)');
+        const serviceAccordion = document.getElementById('service-accordion');
+        const serviceCategoryData = [
+            {
+                title: 'Saúde, Beleza e Bem-Estar',
+                description: 'Transformamos sua autoridade em agenda cheia. Captamos pacientes e clientes prontos para agendar e despertamos desejo com campanhas estratégicas e posicionamento digital.',
+                subitems: ['Saúde em geral', 'Fisioterapia', 'Beleza', 'Tattoo'],
+                image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80',
+                alt: 'Ambiente moderno de clínica estética com atendimento profissional',
+                icon: 'sparkles',
+                kicker: 'Categoria Premium'
+            },
+            {
+                title: 'Alimentação e Gastronomia',
+                description: 'Atraímos clientes com intenção imediata e aumentamos seu movimento nos horários de pico com campanhas locais, geolocalização e criativos de alto impacto.',
+                subitems: ['Restaurantes', 'Cafeterias', 'Cafés'],
+                image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80',
+                alt: 'Ambiente gastronômico sofisticado com pratos atrativos e cafeteria moderna',
+                icon: 'utensils-crossed',
+                kicker: 'Categoria Premium'
+            },
+            {
+                title: 'Varejo e Produtos Físicos',
+                description: 'Conectamos seu produto a quem já quer comprar e criamos campanhas para acelerar conversão, giro de estoque e retorno sobre investimento.',
+                subitems: ['Shopping Google', 'Loja de iPhone', 'Loja de Pneu', 'Loja de biquíni', 'Câmera de vídeo'],
+                image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
+                alt: 'Loja moderna com vitrine de produtos e ecommerce premium',
+                icon: 'shopping-bag',
+                kicker: 'Categoria Premium'
+            },
+            {
+                title: 'Serviços Especializados, Imóveis e B2B',
+                description: 'Geramos leads qualificados, fortalecemos sua percepção de autoridade e posicionamos sua empresa como referência no mercado.',
+                subitems: ['Imobiliária', 'Escritório de contabilidade', 'Arquiteto', 'Engenharia', 'Elevador', 'Borda de piscina', 'Resina', 'Fazenda'],
+                image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80',
+                alt: 'Ambiente corporativo com arquitetura e escritório de engenharia',
+                icon: 'briefcase-business',
+                kicker: 'Categoria Premium'
+            },
+            {
+                title: 'Eventos, Turismo e Hospitalidade',
+                description: 'Criamos desejo, antecipação e presença digital para aumentar reservas, datas fechadas, ingressos vendidos e ocupação.',
+                subitems: ['Hotel', 'Evento', 'Casa de festa', 'Carnaval e Escola de samba'],
+                image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80',
+                alt: 'Hotel elegante e evento sofisticado em ambiente de celebração',
+                icon: 'calendar-heart',
+                kicker: 'Categoria Premium'
+            }
+        ];
 
-        function setActiveNicheCard(activeCard) {
-            nicheCards.forEach((card) => {
-                const isActive = card === activeCard;
-                card.classList.toggle('is-active', isActive);
-                card.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        function renderServiceAccordion() {
+            if (!serviceAccordion) {
+                return;
+            }
+
+            serviceAccordion.innerHTML = serviceCategoryData.map((item, index) => {
+                const panelId = `service-panel-${index}`;
+                const buttonId = `service-trigger-${index}`;
+                const isOpen = index === 0;
+
+                return `
+                    <article class="service-item ${isOpen ? 'is-open' : ''}" data-service-item>
+                        <h4>
+                            <button
+                                id="${buttonId}"
+                                class="service-trigger"
+                                type="button"
+                                aria-expanded="${isOpen ? 'true' : 'false'}"
+                                aria-controls="${panelId}"
+                            >
+                                <span class="service-trigger-title">${item.title}</span>
+                                <span class="service-trigger-icon" aria-hidden="true">
+                                    <i data-lucide="plus" size="18"></i>
+                                </span>
+                            </button>
+                        </h4>
+                        <div
+                            id="${panelId}"
+                            class="service-panel"
+                            role="region"
+                            aria-labelledby="${buttonId}"
+                        >
+                            <div class="service-panel-inner">
+                                <div class="service-panel-content">
+                                    <div class="service-panel-grid">
+                                        <div class="service-copy">
+                                            <span class="service-kicker">
+                                                <i data-lucide="${item.icon}" size="16"></i>
+                                                ${item.kicker}
+                                            </span>
+                                            <h5 class="service-expanded-title">${item.title}</h5>
+                                            <p class="service-description">${item.description}</p>
+                                            <div class="service-subitems">
+                                                ${item.subitems.map((subitem) => `<span class="service-subitem">${subitem}</span>`).join('')}
+                                            </div>
+                                            <a href="#contato" class="service-cta">Ver serviços <span aria-hidden="true">→</span></a>
+                                        </div>
+                                        <div class="service-media">
+                                            <img src="${item.image}" alt="${item.alt}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function closeServiceItems() {
+            document.querySelectorAll('[data-service-item]').forEach((item) => {
+                item.classList.remove('is-open');
+                const trigger = item.querySelector('.service-trigger');
+                if (trigger) {
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
             });
         }
 
-        nicheCards.forEach((card, index) => {
-            card.addEventListener('mouseenter', () => {
-                if (desktopAccordionQuery.matches) {
-                    setActiveNicheCard(card);
-                }
-            });
+        function toggleServiceItem(itemToToggle) {
+            const isAlreadyOpen = itemToToggle.classList.contains('is-open');
+            closeServiceItems();
 
-            card.addEventListener('click', () => {
-                if (!desktopAccordionQuery.matches || !card.classList.contains('is-active')) {
-                    setActiveNicheCard(card);
-                }
-            });
-
-            card.addEventListener('focus', () => {
-                setActiveNicheCard(card);
-            });
-
-            if (index === 0) {
-                setActiveNicheCard(card);
+            if (isAlreadyOpen) {
+                return;
             }
-        });
 
-        desktopAccordionQuery.addEventListener('change', () => {
-            const currentActiveCard = document.querySelector('[data-card].is-active') || nicheCards[0];
-            if (currentActiveCard) {
-                setActiveNicheCard(currentActiveCard);
+            itemToToggle.classList.add('is-open');
+            const trigger = itemToToggle.querySelector('.service-trigger');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'true');
             }
+        }
+
+        renderServiceAccordion();
+
+        document.querySelectorAll('[data-service-item]').forEach((item) => {
+            const trigger = item.querySelector('.service-trigger');
+            if (!trigger) {
+                return;
+            }
+
+            trigger.addEventListener('click', () => {
+                toggleServiceItem(item);
+            });
         });
 
         // FAQ toggle
