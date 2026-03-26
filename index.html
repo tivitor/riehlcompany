@@ -500,6 +500,271 @@
             box-shadow: 0 24px 64px -50px rgba(17, 19, 24, 0.32);
         }
 
+        .niche-shell {
+            position: relative;
+            padding: clamp(22px, 2.8vw, 34px);
+            border-radius: 34px;
+            background:
+                radial-gradient(circle at top left, rgba(223, 5, 21, 0.08), transparent 28%),
+                linear-gradient(180deg, rgba(17, 19, 24, 0.04) 0%, rgba(17, 19, 24, 0.01) 100%),
+                rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(17, 19, 24, 0.08);
+            box-shadow: 0 34px 80px -56px rgba(17, 19, 24, 0.4);
+            overflow: hidden;
+        }
+
+        .niche-shell::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 38%);
+            pointer-events: none;
+        }
+
+        .niche-accordion {
+            position: relative;
+            display: flex;
+            gap: 16px;
+            min-height: 450px;
+            scroll-padding-inline: 8px;
+        }
+
+        .niche-card {
+            position: relative;
+            flex: 0.9 1 0;
+            min-width: 120px;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            isolation: isolate;
+            transition:
+                flex-grow 0.4s ease-in-out,
+                transform 0.4s ease-in-out,
+                box-shadow 0.4s ease-in-out,
+                border-color 0.4s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: #0f1115;
+        }
+
+        .niche-card.is-active {
+            flex-grow: 2.8;
+            transform: translateY(-2px);
+            box-shadow: 0 30px 70px -40px rgba(0, 0, 0, 0.65);
+        }
+
+        .niche-media,
+        .niche-overlay,
+        .niche-card::after {
+            position: absolute;
+            inset: 0;
+        }
+
+        .niche-media {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.5s ease;
+            filter: saturate(1.02) contrast(1.04) brightness(0.82);
+        }
+
+        .niche-card.is-active .niche-media,
+        .niche-card:hover .niche-media {
+            transform: scale(1.08);
+            filter: saturate(1.08) contrast(1.06) brightness(0.88);
+        }
+
+        .niche-overlay {
+            background:
+                linear-gradient(180deg, rgba(8, 8, 10, 0.2) 0%, rgba(8, 8, 10, 0.1) 32%, rgba(8, 8, 10, 0.76) 100%),
+                linear-gradient(0deg, rgba(8, 8, 10, 0.72) 0%, rgba(8, 8, 10, 0.04) 55%);
+            z-index: 1;
+        }
+
+        .niche-card::after {
+            content: "";
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            background: linear-gradient(180deg, rgba(223, 5, 21, 0.04) 0%, rgba(223, 5, 21, 0.22) 100%);
+        }
+
+        .niche-card.is-active::after,
+        .niche-card:hover::after {
+            opacity: 1;
+        }
+
+        .niche-content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+            padding: 22px;
+            color: #ffffff;
+        }
+
+        .niche-topline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: auto;
+        }
+
+        .niche-icon {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .niche-label {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 0.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.84);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        .niche-card.is-active .niche-label,
+        .niche-card:hover .niche-label {
+            opacity: 0;
+            transform: rotate(180deg) translateY(-12px);
+        }
+
+        .niche-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .niche-name {
+            font-size: clamp(1.1rem, 1.35vw, 1.28rem);
+            line-height: 1.15;
+            font-weight: 700;
+            max-width: 10ch;
+            color: rgba(255, 255, 255, 0.96);
+            transition: transform 0.35s ease;
+        }
+
+        .niche-detail {
+            max-width: 27rem;
+            opacity: 0;
+            transform: translateY(18px);
+            pointer-events: none;
+            transition: opacity 0.35s ease, transform 0.4s ease;
+        }
+
+        .niche-card.is-active .niche-detail,
+        .niche-card:hover .niche-detail {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .niche-detail-title {
+            font-size: clamp(1.55rem, 2.1vw, 2.35rem);
+            line-height: 1.05;
+            color: #ffffff;
+            margin-bottom: 12px;
+            max-width: 12ch;
+        }
+
+        .niche-description {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 33ch;
+        }
+
+        .niche-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #ffffff;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .niche-card:hover .niche-cta,
+        .niche-card.is-active .niche-cta {
+            transform: translateX(4px);
+        }
+
+        .niche-card:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(223, 5, 21, 0.32), 0 30px 70px -40px rgba(0, 0, 0, 0.65);
+        }
+
+        @media (min-width: 768px) and (max-width: 1100px) {
+            .niche-shell {
+                padding: 24px;
+                border-radius: 30px;
+            }
+
+            .niche-accordion {
+                min-height: 420px;
+                gap: 12px;
+            }
+
+            .niche-card {
+                min-width: 100px;
+                border-radius: 22px;
+            }
+
+            .niche-card.is-active {
+                flex-grow: 2.2;
+            }
+
+            .niche-content {
+                padding: 18px;
+            }
+
+            .niche-topline {
+                gap: 10px;
+            }
+
+            .niche-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+            }
+
+            .niche-name {
+                font-size: 1rem;
+                max-width: 9ch;
+            }
+
+            .niche-detail-title {
+                font-size: clamp(1.32rem, 2vw, 1.8rem);
+                max-width: 13ch;
+            }
+
+            .niche-description {
+                font-size: 0.94rem;
+                line-height: 1.55;
+                max-width: 28ch;
+            }
+        }
+
         .input-field {
             width: 100%;
             border-radius: 16px;
@@ -577,6 +842,171 @@
 
             .section-heading {
                 max-width: 18ch;
+            }
+
+            .niche-shell {
+                padding: 18px;
+                border-radius: 28px;
+            }
+
+            .niche-accordion {
+                gap: 14px;
+                min-height: 0;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 4px;
+            }
+
+            .niche-card {
+                flex: 0 0 min(84vw, 340px);
+                min-width: min(84vw, 340px);
+                min-height: 400px;
+                scroll-snap-align: center;
+            }
+
+            .niche-card.is-active {
+                flex-grow: 1;
+            }
+
+            .niche-label {
+                writing-mode: initial;
+                transform: none;
+                opacity: 1;
+                font-size: 0.72rem;
+                letter-spacing: 0.16em;
+            }
+
+            .niche-card.is-active .niche-label,
+            .niche-card:hover .niche-label {
+                transform: none;
+                opacity: 1;
+            }
+
+            .niche-name {
+                font-size: 1rem;
+                max-width: 14ch;
+            }
+
+            .niche-detail {
+                opacity: 0;
+                transform: translateY(18px);
+                max-width: 100%;
+            }
+
+            .niche-card.is-active .niche-detail {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .niche-detail-title {
+                font-size: 1.42rem;
+                max-width: 14ch;
+            }
+
+            .niche-description {
+                font-size: 0.94rem;
+                line-height: 1.58;
+                max-width: 30ch;
+            }
+
+            .niche-cta {
+                font-size: 0.76rem;
+                letter-spacing: 0.12em;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .niche-shell {
+                padding: 14px;
+                border-radius: 24px;
+            }
+
+            .niche-accordion {
+                display: grid;
+                gap: 12px;
+                overflow: visible;
+                scroll-snap-type: none;
+                padding-bottom: 0;
+            }
+
+            .niche-card,
+            .niche-card.is-active {
+                min-width: 100%;
+                min-height: 148px;
+                flex: none;
+                box-shadow: none;
+                transform: none;
+            }
+
+            .niche-card.is-active {
+                min-height: 320px;
+                box-shadow: 0 24px 48px -34px rgba(0, 0, 0, 0.55);
+            }
+
+            .niche-content {
+                padding: 16px;
+            }
+
+            .niche-topline {
+                margin-bottom: 36px;
+            }
+
+            .niche-icon {
+                width: 38px;
+                height: 38px;
+                border-radius: 12px;
+            }
+
+            .niche-label {
+                font-size: 0.68rem;
+                letter-spacing: 0.15em;
+            }
+
+            .niche-name {
+                max-width: 16ch;
+            }
+
+            .niche-detail-title {
+                font-size: 1.28rem;
+                margin-bottom: 10px;
+            }
+
+            .niche-description {
+                font-size: 0.9rem;
+                line-height: 1.52;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .niche-card,
+            .niche-card.is-active {
+                min-height: 132px;
+            }
+
+            .niche-card.is-active {
+                min-height: 300px;
+            }
+
+            .niche-content {
+                padding: 14px;
+            }
+
+            .niche-topline {
+                gap: 8px;
+                margin-bottom: 28px;
+            }
+
+            .niche-name {
+                font-size: 0.95rem;
+            }
+
+            .niche-detail-title {
+                font-size: 1.18rem;
+            }
+
+            .niche-description {
+                font-size: 0.86rem;
             }
         }
 
@@ -891,36 +1321,111 @@
     <section id="servicos" class="section-padding bg-gray-50">
         <div class="w-full px-4 sm:px-6 lg:px-8">
             <div class="section-intro text-center mx-auto mb-12 md:mb-16">
-                <p class="section-eyebrow">Nossos Nichos</p>
-                <h3 class="section-heading mx-auto">Segmentos de Atuação</h3>
-                <p class="section-lead mx-auto">Dominamos a complexidade de diferentes mercados para entregar performance superior.</p>
+                <p class="section-eyebrow">Nichos Estratégicos</p>
+                <h3 class="section-heading mx-auto max-w-none">Como podemos te ajudar hoje?</h3>
+                <p class="section-lead mx-auto">Escolha uma categoria de serviço para continuar</p>
             </div>
 
             <div class="mb-6 md:hidden">
-                <p class="text-sm font-bold uppercase tracking-[0.18em] text-vinho">Deslize para o lado</p>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-vinho">Toque para expandir ou deslize para o lado</p>
             </div>
 
-            <div class="flex md:grid md:grid-cols-2 gap-6 md:gap-8 overflow-x-auto md:overflow-visible pb-4 md:pb-0 horizontal-scroll snap-x snap-mandatory">
-                <div class="group relative card-ui p-4 h-[400px] md:h-[26rem] card-interaction min-w-[80vw] sm:min-w-[68vw] md:min-w-0 snap-center">
-                    <div class="relative h-full rounded-[20px] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Imobiliário">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/18 to-transparent"></div>
-                        <div class="absolute inset-0 p-8 sm:p-10 md:p-12 flex flex-col justify-end">
-                            <h4 class="text-2xl sm:text-3xl font-semibold text-white/85 mb-2">Imobiliário & Engenharia</h4>
-                            <p class="text-white/70 text-base sm:text-lg max-w-md leading-relaxed">Captação de investidores e compradores de alta renda para empreendimentos de luxo.</p>
+            <div class="niche-shell">
+                <div class="niche-accordion horizontal-scroll" id="niche-accordion">
+                    <article class="niche-card is-active" data-card tabindex="0" aria-expanded="true">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Clínica estética com atendimento premium">
+                        <div class="niche-overlay"></div>
+                        <div class="niche-content">
+                            <div class="niche-topline">
+                                <span class="niche-icon"><i data-lucide="sparkles" size="20"></i></span>
+                                <span class="niche-label">Saúde, Beleza e Bem-Estar</span>
+                            </div>
+                            <div class="niche-bottom">
+                                <p class="niche-name">Saúde, Beleza e Bem-Estar</p>
+                                <div class="niche-detail">
+                                    <h4 class="niche-detail-title">Saúde, Beleza e Bem-Estar</h4>
+                                    <p class="niche-description">Transformamos sua autoridade em agenda cheia. Captamos pacientes prontos para agendar e despertamos desejo com campanhas estratégicas.</p>
+                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="group relative card-ui p-4 h-[400px] md:h-[26rem] card-interaction min-w-[80vw] sm:min-w-[68vw] md:min-w-0 snap-center">
-                    <div class="relative h-full rounded-[20px] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1505373633562-e28951c121db?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Eventos">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/18 to-transparent"></div>
-                        <div class="absolute inset-0 p-8 sm:p-10 md:p-12 flex flex-col justify-end">
-                            <h4 class="text-2xl sm:text-3xl font-semibold text-white/85 mb-2">Eventos & Lifestyle</h4>
-                            <p class="text-white/70 text-base sm:text-lg max-w-md leading-relaxed">Estratégias para casas de show, festivais e marcas de consumo premium.</p>
+                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Restaurante moderno com pratos atrativos">
+                        <div class="niche-overlay"></div>
+                        <div class="niche-content">
+                            <div class="niche-topline">
+                                <span class="niche-icon"><i data-lucide="utensils-crossed" size="20"></i></span>
+                                <span class="niche-label">Alimentação e Gastronomia</span>
+                            </div>
+                            <div class="niche-bottom">
+                                <p class="niche-name">Alimentação e Gastronomia</p>
+                                <div class="niche-detail">
+                                    <h4 class="niche-detail-title">Alimentação e Gastronomia</h4>
+                                    <p class="niche-description">Atraímos clientes com fome agora e aumentamos seu movimento nos horários de pico com campanhas locais e visuais.</p>
+                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Loja moderna com produtos físicos e ecommerce">
+                        <div class="niche-overlay"></div>
+                        <div class="niche-content">
+                            <div class="niche-topline">
+                                <span class="niche-icon"><i data-lucide="shopping-bag" size="20"></i></span>
+                                <span class="niche-label">Varejo e Produtos Físicos</span>
+                            </div>
+                            <div class="niche-bottom">
+                                <p class="niche-name">Varejo e Produtos Físicos</p>
+                                <div class="niche-detail">
+                                    <h4 class="niche-detail-title">Varejo e Produtos Físicos</h4>
+                                    <p class="niche-description">Conectamos seu produto a quem já quer comprar e aumentamos seu faturamento com estratégias focadas em conversão.</p>
+                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Escritório corporativo para serviços especializados e B2B">
+                        <div class="niche-overlay"></div>
+                        <div class="niche-content">
+                            <div class="niche-topline">
+                                <span class="niche-icon"><i data-lucide="briefcase-business" size="20"></i></span>
+                                <span class="niche-label">Serviços Especializados e B2B</span>
+                            </div>
+                            <div class="niche-bottom">
+                                <p class="niche-name">Serviços Especializados e B2B</p>
+                                <div class="niche-detail">
+                                    <h4 class="niche-detail-title">Serviços Especializados e B2B</h4>
+                                    <p class="niche-description">Geramos leads qualificados e posicionamos sua empresa como referência no mercado.</p>
+                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="niche-card" data-card tabindex="0" aria-expanded="false">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80" class="niche-media" alt="Hotel e evento premium para turismo e hospitalidade">
+                        <div class="niche-overlay"></div>
+                        <div class="niche-content">
+                            <div class="niche-topline">
+                                <span class="niche-icon"><i data-lucide="calendar-heart" size="20"></i></span>
+                                <span class="niche-label">Eventos, Turismo e Hospitalidade</span>
+                            </div>
+                            <div class="niche-bottom">
+                                <p class="niche-name">Eventos, Turismo e Hospitalidade</p>
+                                <div class="niche-detail">
+                                    <h4 class="niche-detail-title">Eventos, Turismo e Hospitalidade</h4>
+                                    <p class="niche-description">Lotamos suas datas e aumentamos reservas com campanhas de antecipação e desejo.</p>
+                                    <a href="#contato" class="niche-cta">Ver serviços <span aria-hidden="true">→</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -1239,6 +1744,46 @@
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             showSlide(currentSlide);
         }
+
+        const nicheCards = document.querySelectorAll('[data-card]');
+        const desktopAccordionQuery = window.matchMedia('(min-width: 768px)');
+
+        function setActiveNicheCard(activeCard) {
+            nicheCards.forEach((card) => {
+                const isActive = card === activeCard;
+                card.classList.toggle('is-active', isActive);
+                card.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+            });
+        }
+
+        nicheCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', () => {
+                if (desktopAccordionQuery.matches) {
+                    setActiveNicheCard(card);
+                }
+            });
+
+            card.addEventListener('click', () => {
+                if (!desktopAccordionQuery.matches || !card.classList.contains('is-active')) {
+                    setActiveNicheCard(card);
+                }
+            });
+
+            card.addEventListener('focus', () => {
+                setActiveNicheCard(card);
+            });
+
+            if (index === 0) {
+                setActiveNicheCard(card);
+            }
+        });
+
+        desktopAccordionQuery.addEventListener('change', () => {
+            const currentActiveCard = document.querySelector('[data-card].is-active') || nicheCards[0];
+            if (currentActiveCard) {
+                setActiveNicheCard(currentActiveCard);
+            }
+        });
 
         // FAQ toggle
         document.querySelectorAll('.faq-item').forEach(item => {
